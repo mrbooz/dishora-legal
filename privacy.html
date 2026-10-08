@@ -32,7 +32,7 @@
 <main>
 <div class="mark">DISHORA</div>
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated 8 September 2026 · mrbooz AB</p>
+<p class="updated">Last updated 8 October 2026 · mrbooz AB</p>
 
 <h2>The short version</h2>
 <p>Dishora has no account and no sign-in. What you save, cook and create stays on your device. We do not sell your data, and there is no advertising SDK in the app.</p>
@@ -49,9 +49,11 @@
 <h2>What leaves your device</h2>
 <p>Only when a feature needs it, and only what that feature needs:</p>
 <ul>
-  <li><strong>Creating, remixing and searching.</strong> The words you type are sent to our AI provider to produce a result. They are not linked to an identity, because there isn't one.</li>
-  <li><strong>Cook from a photo.</strong> The single image you pick is sent to be analysed and is not retained afterwards. The app never has access to the rest of your photo library — Android's system photo picker hands over only your chosen image.</li>
+  <li><strong>Creating, remixing and searching.</strong> The words you type go to our own server, which passes them to our AI provider, OpenAI, to write the recipe. They are not linked to an identity, because there isn't one. The recipe that comes back is kept in a shared cache, so the next person who asks for exactly the same thing gets it instantly. The cache holds recipes, not who asked for them.</li>
+  <li><strong>Generated photographs (Dishora Plus).</strong> A description of the dish, never anything about you, is sent to OpenAI to create its photograph. The photograph is kept in the shared cache so it can be shown to anyone who makes the same dish.</li>
+  <li><strong>Cook from a photo.</strong> The single image you pick is sent through our server to OpenAI to be analysed. We do not store it, and nothing made from it is cached. The app never has access to the rest of your photo library — Android's system photo picker hands over only your chosen image.</li>
   <li><strong>Anonymous usage events</strong>, if enabled in the build you are using: which features are used and whether a recipe was cooked, tied to a random installation identifier that you can reset at any time. No advertising identifier, no device fingerprint, no location, no contacts.</li>
+  <li><strong>Usage limits.</strong> To keep the AI features from being abused, each request carries a one-way hash of your device's Android ID. Our server keeps only that hash and a count of today's requests, and deletes them automatically after 30 days. The hash cannot be turned back into the ID and is not used for anything else.</li>
   <li><strong>Shopping links.</strong> Choosing a retailer opens their site or app with your ingredient list. From that point their privacy policy applies.</li>
 </ul>
 
@@ -65,7 +67,7 @@
 <p>Dishora is a general-audience cooking app and is not directed at children. We do not knowingly collect information from anyone.</p>
 
 <h2>Deleting your data</h2>
-<p>Open <strong>You → Start over</strong>. This erases your taste profile, saved and created dishes, and resets the anonymous installation identifier immediately. Uninstalling removes everything else. Because there is no account, there is nothing held server-side to request deletion of.</p>
+<p>Open <strong>You → Start over</strong>. This erases your taste profile, saved and created dishes, and resets the anonymous installation identifier immediately. Uninstalling removes everything else. Because there is no account, the only thing our server holds is the hashed usage count described above, which deletes itself after 30 days.</p>
 
 <h2>Your rights</h2>
 <p>Where the GDPR applies, you have rights of access, correction, erasure and objection. Since the app holds your data locally and without an identity, the fastest route for all of them is the in-app reset above. For anything else, contact us.</p>
